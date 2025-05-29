@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Shapna - আমার ভালোবাসা</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            background: linear-gradient(135deg, #0a0a1a, #1a1a30);
+            color: #f5f5f5;
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            text-align: center;
+            padding: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .name {
+            font-size: 4.5rem;
+            font-weight: 700;
+            color: #ff69b4;
+            text-shadow: 0 0 20px rgba(255, 105, 180, 0.7);
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+            animation: glow 3s infinite alternate;
+        }
+        
+        .title {
+            font-size: 1.8rem;
+            color: #b19cd9;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+        
+        .hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .heart {
+            position: absolute;
+            color: rgba(255, 105, 180, 0.6);
+            font-size: 24px;
+            animation: float 15s infinite linear;
+            opacity: 0;
+        }
+        
+        /* Love Section */
+        .love-section {
+            text-align: center;
+            padding: 60px 0;
+            position: relative;
+        }
+        
+        .love-box {
+            background: rgba(25, 25, 50, 0.6);
+            border-radius: 20px;
+            padding: 50px;
+            margin: 0 auto;
+            max-width: 700px;
+            position: relative;
+            border: 1px solid rgba(177, 156, 217, 0.3);
+            box-shadow: 0 0 30px rgba(177, 156, 217, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .love-box::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ff69b4, #9370db, #b19cd9, #ff69b4);
+            background-size: 400% 400%;
+            z-index: -1;
+            border-radius: 22px;
+            animation: gradient 10s ease infinite;
+        }
+        
+        .i-love-you {
+            font-size: 5rem;
+            color: #ff69b4;
+            margin-bottom: 30px;
+            text-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+            animation: pulse 3s infinite;
+        }
+        
+        .bangla-poem {
+            font-size: 1.8rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            color: #e6e6fa;
+            font-weight: 300;
+        }
+        
+        .english-translation {
+            font-size: 1.4rem;
+            font-style: italic;
+            color: #b19cd9;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        
+        .signature {
+            font-size: 2.2rem;
+            color: #ff69b4;
+            margin-top: 40px;
+            font-family: cursive;
+            text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+        }
+        
+        /* Memories */
+        .memories {
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: #b19cd9;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #ff69b4;
+            border-radius: 3px;
+        }
+        
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .memory-card {
+            background: rgba(30, 30, 60, 0.7);
+            border-radius: 15px;
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(177, 156, 217, 0.2);
+        }
+        
+        .memory-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(177, 156, 217, 0.3);
+        }
+        
+        .memory-icon {
+            font-size: 3rem;
+            color: #ff69b4;
+            margin-bottom: 15px;
+        }
+        
+        .memory-title {
+            font-size: 1.4rem;
+            color: #e6e6fa;
+            margin-bottom: 10px;
+        }
+        
+        .memory-desc {
+            font-size: 1.1rem;
+            color: #b19cd9;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #b19cd9;
+            font-size: 1.1rem;
+        }
+        
+        .footer-heart {
+            color: #ff69b4;
+            animation: heartbeat 1.5s infinite;
+            display: inline-block;
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+            }
+            100% {
+                text-shadow: 0 0 30px rgba(255, 105, 180, 0.9), 0 0 50px rgba(255, 105, 180, 0.7);
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+            }
+            50% {
+                transform: scale(1.05);
+                text-shadow: 0 0 20px rgba(255, 105, 180, 0.8);
+            }
+            100% {
+                transform: scale(1);
+                text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+            }
+        }
+        
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.3); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.3); }
+            70% { transform: scale(1); }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .name {
+                font-size: 3.5rem;
+            }
+            
+            .i-love-you {
+                font-size: 3.5rem;
+            }
+            
+            .bangla-poem {
+                font-size: 1.5rem;
+            }
+            
+            .english-translation {
+                font-size: 1.2rem;
+            }
+            
+            .love-box {
+                padding: 30px 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .name {
+                font-size: 2.8rem;
+            }
+            
+            .title {
+                font-size: 1.4rem;
+            }
+            
+            .i-love-you {
+                font-size: 2.8rem;
+            }
+            
+            .bangla-poem {
+                font-size: 1.3rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts" id="hearts"></div>
+    
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1 class="name">Shapna</h1>
+            </div>
+        </header>
+        
+        <section class="love-section">
+            <div class="love-box">
+                <div class="i-love-you">I Love You</div>
+                
+                <div class="bangla-poem">
+                    তোমার হাসিতে আমার সকাল জাগে,<br>
+                    তোমার চোখে আমার সন্ধ্যা নামে।<br>
+                    তোমার ছোঁয়ায় আমার হৃদয় বেজে ওঠে,<br>
+                    তোমার সান্নিধ্যে আমার সব দুঃখ ভোলে।
+                </div>
+                
+                <div class="english-translation">
+                    "My mornings awaken with your smile,<br>
+                    Evenings descend in your eyes all the while.<br>
+                    My heart beats with your gentle touch,<br>
+                    All sorrows forgotten when I'm with you so much."
+                </div>
+                
+                <div class="bangla-poem">
+                    তুমি আমার আকাশের চাঁদ,<br>
+                    তুমি আমার বৃষ্টিভেজা গান।<br>
+                    তুমি ছাড়া এই জীবন অর্থহীন,<br>
+                    তুমি আমার সবচেয়ে সুন্দর স্বপ্ন।
+                </div>
+                
+                <div class="english-translation">
+                    "You are the moon in my sky,<br>
+                    You are my rain-soaked melody nearby.<br>
+                    Without you, life feels incomplete,<br>
+                    You're the most beautiful dream I ever meet."
+                </div>
+                
+                <div class="signature">Forever Yours</div>
+            </div>
+        </section>
+        
+        <section class="memories">
+            <h2 class="section-title">Some lines for you</h2>
+            
+            <div class="memory-grid">
+                <div class="memory-card">
+                    <div class="memory-icon">💖</div>
+                    <h3 class="memory-title">অবিচ্ছেদ্য ভালোবাসা</h3>
+                    <p class="memory-desc">তোমার জন্য আমার হৃদয়ের গভীরে যে ভালোবাসা, তা কোনোদিন ফুরাবে না</p>
+                </div>
+                
+                <div class="memory-card">
+                    <div class="memory-icon">🌌</div>
+                    <h3 class="memory-title">আকাশের তারা</h3>
+                    <p class="memory-desc">তুমি আমার জীবনের রাতের আকাশে সবচেয়ে উজ্জ্বল তারা</p>
+                </div>
+                
+         </div>
+        </section>
+        
+        <footer>
+            <p>Created with <span class="footer-heart">❤</span> for Shapna</p>
+        </footer>
+    </div>
+    
+    <script>
+        // Create floating hearts
+        function createHearts() {
+            const heartsContainer = document.getElementById('hearts');
+            const heartCount = 50;
+            
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤';
+                heart.style.left = `${Math.random() * 100}vw`;
+                heart.style.animationDuration = `${10 + Math.random() * 20}s`;
+                heart.style.animationDelay = `${Math.random() * 5}s`;
+                heart.style.fontSize = `${15 + Math.random() * 25}px`;
+                heartsContainer.appendChild(heart);
+            }
+        }
+        
+        // Initialize
+        window.addEventListener('load', createHearts);
+    </script>
+</body>
+</html>
